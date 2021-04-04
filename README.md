@@ -2,7 +2,9 @@
 
 Release version [![](https://jitpack.io/v/aakarshrestha/ComposeCollapsingToolbar.svg)](https://jitpack.io/#aakarshrestha/ComposeCollapsingToolbar)
 
-This is a simple library designed in Jetpack Compose UI where app bar will collaps when a list is scrolled.
+This is a simple library designed in Jetpack Compose where app bar will collaps when a list is scrolled.
+
+![collapsingToolbar](https://user-images.githubusercontent.com/15058925/113520336-55929180-9560-11eb-9af1-ab8e0efad93b.gif)
 
 # Download
 Add it in your root build.gradle at the end of repositories:
