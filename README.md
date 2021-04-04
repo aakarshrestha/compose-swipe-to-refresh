@@ -65,19 +65,19 @@ CollapsableToolbar method has the following arguments:
 ```
 isBottomAppBarVisible: Boolean? = true
 ```
-isBottomAppBarVisible, by default is set to true and will be visible. To hide the BottomAppbar, you can set the value to false.
+_isBottomAppBarVisible_, by default is set to true and will be visible. To hide the BottomAppbar, you can set the value to false.
 
 ```
 contentToAddInTopAppBar: @Composable () -> Unit
 ```
-contentToAddInTopAppBar is a composable function where another composable function can be passed. For example, if you want to add a title to the top toolbar, you can pass it in contentToAddInTopAppBar.
+_contentToAddInTopAppBar_ is a composable function where another composable function can be passed. For example, if you want to add a title to the top toolbar, you can pass it in contentToAddInTopAppBar.
 
 ```
 body: @Composable () -> Unit
 ```
-body is where you can pass another composable function. For example, you can pass a list in it.
+_body_ is where you can pass another composable function. For example, you can pass a list in it.
 
 ```
 contentToAddInBottomAppBar: @Composable () -> Unit = {}
 ```
-contentToAddInBottomAppBar is another composable function. Adding any composable function in contentToAddInBottomAppBar will be added in the BottomAppBar.
+_contentToAddInBottomAppBar_ is another composable function. Adding any composable function in contentToAddInBottomAppBar will be added in the BottomAppBar.
