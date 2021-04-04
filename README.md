@@ -63,6 +63,16 @@ dependencies {
     }
 ```
 
+```
+@Composable
+fun CollapsableToolbar(
+    isBottomAppBarVisible: Boolean? = true,
+    contentToAddInTopAppBar: @Composable () -> Unit,
+    body: @Composable () -> Unit,
+    contentToAddInBottomAppBar: @Composable () -> Unit = {}
+)
+```
+
 CollapsableToolbar method has the following arguments:
 ```
 isBottomAppBarVisible: Boolean? = true
