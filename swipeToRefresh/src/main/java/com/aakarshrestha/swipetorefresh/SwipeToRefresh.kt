@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -45,10 +46,10 @@ fun SwipeToRefresh(
     content: @Composable () -> Unit
 ) {
 
-    val boxOneOffset = remember { mutableStateOf(0f) }
-    val dragOffset = remember { mutableStateOf(0f) }
-    val refreshTextValue = remember { mutableStateOf("Pull to refresh") }
-    val refreshState = remember { mutableStateOf(isRefreshing) }
+    val boxOneOffset = rememberSaveable { mutableStateOf(0f) }
+    val dragOffset = rememberSaveable { mutableStateOf(0f) }
+    val refreshTextValue = rememberSaveable { mutableStateOf("Pull to refresh") }
+    val refreshState = rememberSaveable { mutableStateOf(isRefreshing) }
 
     val connection = object : NestedScrollConnection {
         override fun onPostScroll(
