@@ -1,3 +1,4 @@
 rootProject.name = "ComposeCollapsingToolbarLayout"
 include ':app'
 include ':collapsableAppbarUtil'
+include ':swipeToRefresh'
