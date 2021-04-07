@@ -25,15 +25,20 @@ import kotlin.math.roundToInt
 private const val BASE_OFFSET = 400f
 private const val MAX_OFFSET = 1000f
 private const val MID_OFFSET = 270f
+private const val PULL_TO_REFRESH = "Pull to refresh"
+private const val REFRESHING = "Refreshing"
 
 /**
+ * SwipeToRefresh composable function should be used whenever the user can refresh the content
+ * of a view via vertical scroll by using [NestedScrollConnection]. It will call [onRefresh] callback method where [isRefreshing] boolean value
+ * should be set to true and later false.
  *
- * @param isRefreshing
- * @param progressBarColor
- * @param pullToRefreshTextColor
- * @param refreshSectionBackgroundColor
- * @param onRefresh
- * @param content
+ * @param isRefreshing refreshing is in progress or not
+ * @param progressBarColor color of the progress bar
+ * @param pullToRefreshTextColor color of pull to refresh text
+ * @param refreshSectionBackgroundColor color of refresh section where pull to refresh text and refreshing displayed
+ * @param onRefresh callback method for refreshing content
+ * @param content body to display content
  */
 @Composable
 fun SwipeToRefresh(
@@ -47,7 +52,7 @@ fun SwipeToRefresh(
 
     val boxOneOffset = rememberSaveable { mutableStateOf(0f) }
     val dragOffset = rememberSaveable { mutableStateOf(0f) }
-    val refreshTextValue = rememberSaveable { mutableStateOf("Pull to refresh") }
+    val refreshTextValue = rememberSaveable { mutableStateOf(PULL_TO_REFRESH) }
     val refreshState = rememberSaveable { mutableStateOf(isRefreshing) }
 
     val connection = object : NestedScrollConnection {
@@ -70,7 +75,7 @@ fun SwipeToRefresh(
                     }
                     dragOffset.value >= MAX_OFFSET -> {
                         refreshState.value = true
-                        refreshTextValue.value = "Refreshing..."
+                        refreshTextValue.value = "$REFRESHING..."
                         onRefresh.invoke()
                     }
                 }
@@ -87,7 +92,7 @@ fun SwipeToRefresh(
 
             boxOneOffset.value = 0f
             dragOffset.value = 0f
-            refreshTextValue.value = "Pull to refresh"
+            refreshTextValue.value = PULL_TO_REFRESH
 
             return super.onPostFling(consumed, available)
         }
@@ -115,7 +120,7 @@ fun SwipeToRefresh(
             if (!isRefreshing) {
                 boxOneOffset.value = 0f
                 dragOffset.value = 0f
-                refreshTextValue.value = "Pull to refresh"
+                refreshTextValue.value = PULL_TO_REFRESH
                 refreshState.value = false
             }
         }
@@ -123,12 +128,10 @@ fun SwipeToRefresh(
 }
 
 /**
- *
- *
- * @param isRefreshing
- * @param refreshTextValue
- * @param progressBarColor
- * @param pullToRefreshTextColor
+ * @param isRefreshing boolean to indicate refreshing
+ * @param refreshTextValue mutable state that holds the text value
+ * @param progressBarColor color of the progress bar
+ * @param pullToRefreshTextColor color of the pull to refresh text
  */
 @Composable
 private fun RefreshSection(
