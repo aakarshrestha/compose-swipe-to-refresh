@@ -60,6 +60,9 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../swipeToRefresh/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../swipeToRefresh/src/androidTest/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../swipeToRefresh/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../swipeToRefresh/build/generated/ap_generated_sources/debug/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../swipeToRefresh/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../swipeToRefresh/build/generated/res/resValues/debug" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/../../../swipeToRefresh/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../../swipeToRefresh/build" />
     </content>
