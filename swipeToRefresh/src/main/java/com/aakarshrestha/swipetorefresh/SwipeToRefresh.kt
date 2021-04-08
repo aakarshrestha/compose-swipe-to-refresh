@@ -149,7 +149,7 @@ fun SwipeToRefresh(
 }
 
 private suspend fun update(listener: () -> Unit){
-    delay(1000)
+    delay(240)
     listener.invoke()
 }
 
@@ -218,7 +218,7 @@ private fun offsetAnimation(updateTransition: Transition<MutableState<BoxState>>
                 BoxState.Expanded -> tween(0)
                 BoxState.Collapsed -> {
                     update.invoke()
-                    tween(500, 200)
+                    tween(300, 180)
                 }
             }
         }
