@@ -3,8 +3,7 @@ Release version [![](https://jitpack.io/v/aakarshrestha/ComposeCollapsingToolbar
 This repository will include a number of libraries that are written for Jetpack compose - android in Kotlin.
 List of libraries are:
 1. swipeToRefresh
-2. collapsableAppbarUtil
-3. pagerSnapHelper - **Coming soon**
+2. pagerSnapHelper - **Coming soon**
 
 # Download
 Add it in your root build.gradle at the end of repositories:
