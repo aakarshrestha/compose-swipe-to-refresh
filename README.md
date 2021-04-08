@@ -28,6 +28,52 @@ dependencies {
 
 # Usage
 
+SwipeToRefresh method.
+```
+@Composable
+fun SwipeToRefresh(
+    isRefreshing: Boolean,
+    progressBarColor: Color? = null,
+    pullToRefreshTextColor: Color? = null,
+    refreshSectionBackgroundColor: Color? = null,
+    onRefresh: () -> Unit,
+    content: @Composable () -> Unit
+)
+
+```
+SwipeToRefresh method takes the following params:
+1. isRefreshing - to indicate whether or not refreshing is in progress
+2. progressBarColor - is optional but can be used to provide custom color
+3. pullToRefreshTextColor - is optional but can be used to provide custom color
+4. refreshSectionBackgroundColor - is optional but can be used to provide custom color
+5. onRefresh - is a callback method where, e.g: you can make a network call and once the call is done, update isRefreshing to false
+6. content - is a composable function that take another composable function. You can add top app bar and others. 
+
+
+Implementation:
+Check out the sample app to see how it works.
+```
+val isRefreshing = rememberSaveable { mutableStateOf(false) } //required
+
+SwipeToRefresh(
+	isRefreshing = isRefreshing.value,
+	onRefresh = {
+	    isRefreshing.value = true
+
+	    //make a fake network call and when done, update the isRefreshing to false
+	    fakeNetworkCall {
+		isRefreshing.value = false //required
+	    }
+	},
+	refreshSectionBackgroundColor = MaterialTheme.colors.primary,
+
+	content = {
+		// add your content here, e.g: top app bar and else
+		// checkout the sample project
+	}
+
+)
+```
 
 # Coming soon
 - **pagerSnapHelper** for Jetpack compose
