@@ -1,16 +1,9 @@
-# ComposeCollapsingToolbar
-
 Release version [![](https://jitpack.io/v/aakarshrestha/ComposeCollapsingToolbar.svg)](https://jitpack.io/#aakarshrestha/ComposeCollapsingToolbar)
 
-This is a simple library designed in Jetpack Compose where app bar will collaps when a list is scrolled.
-
-
-**Swipe to refresh demo**
-
-![swipe_to_refresh_demo](https://user-images.githubusercontent.com/15058925/113975351-5dc32900-980d-11eb-85c2-5c9883802e54.gif)
-
-
-![collapsingToolbar](https://user-images.githubusercontent.com/15058925/113520336-55929180-9560-11eb-9af1-ab8e0efad93b.gif)
+This repository will include a number of libraries that are written for Jetpack compose - android in Kotlin.
+List of libraries are:
+1. swipeToRefresh
+2. collapsableAppbarUtil
 
 # Download
 Add it in your root build.gradle at the end of repositories:
@@ -29,6 +22,22 @@ dependencies {
     implementation "com.github.aakarshrestha:ComposeCollapsingToolbar:version"
 }
 ```
+
+# SwipeToRefresh
+
+**Swipe to refresh demo**
+
+![swipe_to_refresh_demo](https://user-images.githubusercontent.com/15058925/113975351-5dc32900-980d-11eb-85c2-5c9883802e54.gif)
+
+# Usage
+
+
+
+# CollapsableAppbarUtil
+
+**Collapsing app bar when scrolled**
+
+![collapsingToolbar](https://user-images.githubusercontent.com/15058925/113520336-55929180-9560-11eb-9af1-ab8e0efad93b.gif)
 
 # Usage
 
