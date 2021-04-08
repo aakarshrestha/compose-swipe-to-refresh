@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.aakarshrestha.ComposeCollapsingToolbar:collapsableAppbarUtil:1.0.2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/538c30a2f9309c06a3c0d4f544baa219/collapsableAppbarUtil-1.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/538c30a2f9309c06a3c0d4f544baa219/collapsableAppbarUtil-1.0.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/538c30a2f9309c06a3c0d4f544baa219/collapsableAppbarUtil-1.0.1/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.aakarshrestha.ComposeCollapsingToolbar/collapsableAppbarUtil/1.0.2/77cdbaa9f16007f40ba47134f9a660e25a084bc9/collapsableAppbarUtil-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
