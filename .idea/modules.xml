@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ComposeCollapsingToolbarLayout.iml" filepath="$PROJECT_DIR$/.idea/modules/ComposeCollapsingToolbarLayout.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ComposeCollapsingToolbarLayout.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ComposeCollapsingToolbarLayout.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/collapsableAppbarUtil/ComposeCollapsingToolbarLayout.collapsableAppbarUtil.iml" filepath="$PROJECT_DIR$/.idea/modules/collapsableAppbarUtil/ComposeCollapsingToolbarLayout.collapsableAppbarUtil.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sampleappswipetorefresh/ComposeCollapsingToolbarLayout.sampleappswipetorefresh.iml" filepath="$PROJECT_DIR$/.idea/modules/sampleappswipetorefresh/ComposeCollapsingToolbarLayout.sampleappswipetorefresh.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/swipeToRefresh/ComposeCollapsingToolbarLayout.swipeToRefresh.iml" filepath="$PROJECT_DIR$/.idea/modules/swipeToRefresh/ComposeCollapsingToolbarLayout.swipeToRefresh.iml" />
     </modules>
