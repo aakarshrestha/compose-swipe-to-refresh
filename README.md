@@ -28,7 +28,7 @@ dependencies {
 
 **Swipe to refresh demo**
 
-![swipe_to_refresh_demo](https://user-images.githubusercontent.com/15058925/113975351-5dc32900-980d-11eb-85c2-5c9883802e54.gif)
+![swipeToRefresh](https://user-images.githubusercontent.com/15058925/114078473-fb9f0e00-9876-11eb-9e19-b51ddf2d86c3.gif)
 
 # Usage
 
