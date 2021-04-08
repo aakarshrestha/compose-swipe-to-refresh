@@ -4,6 +4,7 @@ This repository will include a number of libraries that are written for Jetpack 
 List of libraries are:
 1. swipeToRefresh
 2. collapsableAppbarUtil
+3. pagerSnapHelper - **Coming soon**
 
 # Download
 Add it in your root build.gradle at the end of repositories:
