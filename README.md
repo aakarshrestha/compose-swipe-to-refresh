@@ -1,6 +1,6 @@
 Release version [![](https://jitpack.io/v/aakarshrestha/ComposeCollapsingToolbar.svg)](https://jitpack.io/#aakarshrestha/ComposeCollapsingToolbar)
 
-Compose swipe to refresh is a small library for pull to refresh - Jetpack compose.
+Compose swipe to refresh is a small library that implements pull to refresh action - Jetpack compose.
 
 # Download
 Add it in your root build.gradle at the end of repositories:
