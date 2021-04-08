@@ -99,9 +99,9 @@ fun BodySection(
     LazyColumn {
         item {
             HeaderSection(
-                heading = "Beats that",
-                title = "Touch your Heart",
-                subtitle = "Best songs of the year"
+                heading = heading,
+                title = title,
+                subtitle = subtitle
             )
         }
 
