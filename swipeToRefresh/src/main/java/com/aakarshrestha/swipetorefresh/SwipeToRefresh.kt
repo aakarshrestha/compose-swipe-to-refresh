@@ -1,12 +1,15 @@
 package com.aakarshrestha.swipetorefresh
 
+import android.annotation.SuppressLint
+import androidx.compose.animation.core.Transition
+import androidx.compose.animation.core.animateInt
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,6 +23,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
 private const val BASE_OFFSET = 400f
@@ -40,6 +45,7 @@ private const val REFRESHING = "Refreshing"
  * @param onRefresh callback method for refreshing content
  * @param content body to display content
  */
+@SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun SwipeToRefresh(
     isRefreshing: Boolean,
@@ -50,10 +56,17 @@ fun SwipeToRefresh(
     content: @Composable () -> Unit
 ) {
 
+    val coroutineScope = rememberCoroutineScope()
     val boxOneOffset = rememberSaveable { mutableStateOf(0f) }
     val dragOffset = rememberSaveable { mutableStateOf(0f) }
     val refreshTextValue = rememberSaveable { mutableStateOf(PULL_TO_REFRESH) }
     val refreshState = rememberSaveable { mutableStateOf(isRefreshing) }
+
+    val currentState = rememberSaveable { mutableStateOf(BoxState.Collapsed)}
+    val updateTransition = updateTransition(currentState)
+    val offsetSize = offsetAnimation(updateTransition) {
+        refreshTextValue.value = ""
+    }
 
     val connection = object : NestedScrollConnection {
         override fun onPostScroll(
@@ -76,6 +89,7 @@ fun SwipeToRefresh(
                     dragOffset.value >= MAX_OFFSET -> {
                         refreshState.value = true
                         refreshTextValue.value = "$REFRESHING..."
+                        currentState.value = BoxState.Expanded
                         onRefresh.invoke()
                     }
                 }
@@ -90,7 +104,7 @@ fun SwipeToRefresh(
                 return Velocity.Zero
             }
 
-            boxOneOffset.value = 0f
+            boxOneOffset.value = offsetSize.value.toFloat()
             dragOffset.value = 0f
             refreshTextValue.value = PULL_TO_REFRESH
 
@@ -118,13 +132,25 @@ fun SwipeToRefresh(
 
 
             if (!isRefreshing) {
-                boxOneOffset.value = 0f
+                currentState.value = BoxState.Collapsed
+                boxOneOffset.value = offsetSize.value.toFloat()
                 dragOffset.value = 0f
-                refreshTextValue.value = PULL_TO_REFRESH
+                if (currentState.value == BoxState.Collapsed) {
+                    coroutineScope.launch {
+                        update {
+                            refreshTextValue.value = PULL_TO_REFRESH
+                        }
+                    }
+                }
                 refreshState.value = false
             }
         }
     }
+}
+
+private suspend fun update(listener: () -> Unit){
+    delay(1000)
+    listener.invoke()
 }
 
 /**
@@ -150,16 +176,14 @@ private fun RefreshSection(
                 .align(alignment = Alignment.CenterHorizontally),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            if (isRefreshing) {
-                CircularProgressIndicator(modifier = Modifier
-                    .width(20.dp)
-                    .height(20.dp),
-                    color = progressBarColor ?: Color.LightGray,
-                    strokeWidth = 1.dp
-                )
+            CircularProgressIndicator(modifier = Modifier
+                .width(20.dp)
+                .height(20.dp),
+                color = progressBarColor ?: if (isRefreshing) Color.LightGray else Color.Transparent,
+                strokeWidth = 1.dp
+            )
 
-                Spacer(modifier = Modifier.width(10.dp))
-            }
+            Spacer(modifier = Modifier.width(10.dp))
 
             Text(
                 text = refreshTextValue.value,
@@ -167,6 +191,41 @@ private fun RefreshSection(
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center
             )
+        }
+    }
+}
+
+/**
+ * [BoxState] State of the box either [Collapsed] or [Expanded]
+ */
+private enum class BoxState {
+    Collapsed,
+    Expanded;
+}
+
+/**
+ * [offsetAnimation] provides the int value based on BoxState to animate [RefreshSection]
+ *
+ * @param updateTransition stores the state
+ * @param update callback method to update the value of [refreshTextValue]
+ */
+
+@Composable
+private fun offsetAnimation(updateTransition: Transition<MutableState<BoxState>>, update: () -> Unit): State<Int> {
+    return updateTransition.animateInt(
+        transitionSpec = {
+            when(this.initialState.value) {
+                BoxState.Expanded -> tween(0)
+                BoxState.Collapsed -> {
+                    update.invoke()
+                    tween(500, 200)
+                }
+            }
+        }
+    ) { state ->
+        when (state.value) {
+            BoxState.Collapsed -> 0
+            BoxState.Expanded -> MID_OFFSET.toInt()
         }
     }
 }
