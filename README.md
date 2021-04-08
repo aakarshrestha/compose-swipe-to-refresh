@@ -33,86 +33,10 @@ dependencies {
 # Usage
 
 
-
-# CollapsableAppbarUtil
-
-**Collapsing app bar when scrolled**
-
-![collapsingToolbar](https://user-images.githubusercontent.com/15058925/113520336-55929180-9560-11eb-9af1-ab8e0efad93b.gif)
-
-# Usage
-
-```
-@Composable
-    fun App() {
-        CollapsableToolbar(
-            contentToAddInTopAppBar = {
-                Text(text = "Title", modifier = Modifier.padding(start = 16.dp))
-            },
-            body = {
-                LazyColumn {
-                    items(25) { item ->
-                        Text(text = "Item $item", modifier = Modifier
-                            .padding(20.dp)
-                            .fillMaxWidth())
-                    }
-                }
-            },
-            contentToAddInBottomAppBar = {
-                Column(
-                    modifier = Modifier.fillMaxSize(),
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxSize().align(alignment = Alignment.CenterHorizontally),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Text(text = "Inbox", modifier = Modifier.fillMaxHeight().padding(16.dp), textAlign = TextAlign.Center)
-                        Text(text = "Outbox", modifier = Modifier.fillMaxHeight().padding(16.dp), textAlign = TextAlign.Center)
-                        Text(text = "Settings", modifier = Modifier.fillMaxHeight().padding(16.dp), textAlign = TextAlign.Center)
-                    }
-                }
-            }
-        )
-    }
-```
-
-```
-@Composable
-fun CollapsableToolbar(
-    isBottomAppBarVisible: Boolean? = true,
-    contentToAddInTopAppBar: @Composable () -> Unit,
-    body: @Composable () -> Unit,
-    contentToAddInBottomAppBar: @Composable () -> Unit = {}
-)
-```
-
-CollapsableToolbar method has the following arguments:
-```
-isBottomAppBarVisible: Boolean? = true
-```
-_isBottomAppBarVisible_, by default is set to true and will be visible. To hide the BottomAppbar, you can set the value to false.
-
-```
-contentToAddInTopAppBar: @Composable () -> Unit
-```
-_contentToAddInTopAppBar_ is a composable function where another composable function can be passed. For example, if you want to add a title to the top toolbar, you can pass it in contentToAddInTopAppBar.
-
-```
-body: @Composable () -> Unit
-```
-_body_ is where you can pass another composable function. For example, you can pass a list in it.
-
-```
-contentToAddInBottomAppBar: @Composable () -> Unit = {}
-```
-_contentToAddInBottomAppBar_ is another composable function. Adding any composable function in contentToAddInBottomAppBar will be added in the BottomAppBar.
-
 # License
 
 ```
+Copyright 2021 Aakar Shrestha
 
 Permission is hereby granted, free of charge, 
 to any person obtaining a copy of this software and associated 
