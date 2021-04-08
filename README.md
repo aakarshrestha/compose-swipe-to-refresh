@@ -20,7 +20,7 @@ allprojects {
 Add it in your app build.gradle:
 ```
 dependencies {
-    implementation "com.github.aakarshrestha:ComposeCollapsingToolbar:version"
+    implementation "com.github.aakarshrestha:compose-swipe-to-refresh:version"
 }
 ```
 
