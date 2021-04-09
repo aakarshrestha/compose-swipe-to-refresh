@@ -1,4 +1,4 @@
-Release version [![](https://jitpack.io/v/aakarshrestha/ComposeCollapsingToolbar.svg)](https://jitpack.io/#aakarshrestha/ComposeCollapsingToolbar)
+Release version [![](https://jitpack.io/v/aakarshrestha/compose-swipe-to-refresh.svg)](https://jitpack.io/#aakarshrestha/compose-swipe-to-refresh)
 
 Compose swipe to refresh is a small library that implements pull to refresh action - Jetpack compose.
 
