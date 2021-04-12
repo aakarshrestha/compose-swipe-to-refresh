@@ -16,7 +16,7 @@ allprojects {
 Add it in your app build.gradle:
 ```
 dependencies {
-    implementation "com.github.aakarshrestha:compose-swipe-to-refresh:version"
+    implementation "com.github.aakarshrestha:compose-swipe-to-refresh:[version]"
 }
 ```
 
@@ -75,8 +75,8 @@ SwipeToRefresh(
 )
 ```
 
-# Coming soon
-- **pagerSnapHelper** for Jetpack compose
+# Check out Compose pager snap library - Jetpack compose android
+- [ComposePagerSnapHelper https://github.com/aakarshrestha/compose-pager-snap-helper]
 
 # License
 
