@@ -9,7 +9,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,10 +17,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.aakarshrestha.swipetorefresh.SwipeToRefresh
 import com.aakarshrestha.sampleappswipetorefresh.R
 import com.aakarshrestha.sampleappswipetorefresh.models.Music
 import com.aakarshrestha.sampleappswipetorefresh.network.fakeNetworkCall
+import com.aakarshrestha.swipetorefresh.ComposePullToRefresh
 
 @Composable
 fun MainScreen(
@@ -31,6 +30,42 @@ fun MainScreen(
     subtitle: String
 ) {
 
+    val refreshing = rememberSaveable { mutableStateOf(false) }
+
+    ComposePullToRefresh(
+        isRefreshing = refreshing.value,
+        onRefresh = {
+
+            refreshing.value = true
+
+            fakeNetworkCall {
+                refreshing.value = false
+            }
+        },
+        indicatorColor = MaterialTheme.colors.onPrimary,
+        content = {
+            Box(modifier = Modifier
+                .fillMaxSize()
+                .background(color = MaterialTheme.colors.primary)
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                ) {
+                    TopAppBarSection()
+                    BodySection(
+                        musicList = musicList,
+                        heading = heading,
+                        title = title,
+                        subtitle = subtitle
+                    )
+                }
+            }
+        }
+    )
+
+
+    /*
     val isRefreshing = rememberSaveable { mutableStateOf(false) }
 
     SwipeToRefresh(
@@ -65,6 +100,7 @@ fun MainScreen(
             }
         }
     }
+    */
 }
 
 @Composable

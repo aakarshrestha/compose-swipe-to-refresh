@@ -5,7 +5,7 @@ import android.os.CountDownTimer
 fun fakeNetworkCall(
     onNetworkCallDone: (Boolean) -> Unit
 ) {
-    object: CountDownTimer(5000, 1000) {
+    object: CountDownTimer(3000, 1000) {
         override fun onTick(p0: Long) {
 
         }
