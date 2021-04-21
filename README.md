@@ -20,6 +20,73 @@ dependencies {
 }
 ```
 
+# ComposePullToRefresh
+ComposePullToRefresh library is inspired from google swipe to refresh in jetpack compose.
+
+**Pull to refresh demo**
+
+![pull-to-refresh](https://user-images.githubusercontent.com/15058925/115610246-96a3d900-a2b6-11eb-8de9-55ff3737209a.gif)
+
+# Usage
+```
+@Composable
+fun ComposePullToRefresh(
+    isRefreshing: Boolean,
+    onRefresh: () -> Unit,
+    indicatorTopPadding: Dp = 60.dp,
+    indicatorColor: Color = MaterialTheme.colors.primary,
+    content: @Composable () -> Unit
+)
+```
+
+ComposePullToRefresh implements pull to refresh action with an indicator that gets adjusted when dragged and let go.
+* @param isRefreshing initial value for pull to refresh
+* @param onRefresh callback method which get triggered when pull to refresh indicator is pull down to a given position
+* @param indicatorTopPadding padding for the pull to refresh indicator
+* @param indicatorColor color to display in the progress bar
+* @param content scrollable composable to be placed here
+
+Implementation:
+Check out the sample app to see how it works.
+
+```
+val refreshing = rememberSaveable { mutableStateOf(false) } **required**
+
+ComposePullToRefresh(
+	isRefreshing = refreshing.value,
+	onRefresh = {
+
+	    refreshing.value = true **required - need to set it to true when onRefresh callback method is called.**
+
+	    fakeNetworkCall {
+		refreshing.value = false **required - once the network call is done, need to set refreshing value to false**
+	    }
+	},
+	indicatorColor = MaterialTheme.colors.onPrimary,
+	content = {
+	    Box(modifier = Modifier
+		.fillMaxSize()
+		.background(color = MaterialTheme.colors.primary)
+	    ) {
+		Column(
+		    modifier = Modifier
+			.fillMaxSize()
+		) {
+		    TopAppBarSection()
+		    BodySection(
+			musicList = musicList,
+			heading = heading,
+			title = title,
+			subtitle = subtitle
+		    )
+		}
+	    }
+	}
+)
+```
+
+
+
 # SwipeToRefresh
 
 **Swipe to refresh demo**
