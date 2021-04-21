@@ -20,6 +20,8 @@ dependencies {
 }
 ```
 
+# 01
+
 # ComposePullToRefresh
 ComposePullToRefresh library is inspired from google swipe to refresh in jetpack compose.
 
@@ -86,6 +88,11 @@ ComposePullToRefresh(
 ```
 
 
+#
+#
+#
+
+# 02
 
 # SwipeToRefresh
 
