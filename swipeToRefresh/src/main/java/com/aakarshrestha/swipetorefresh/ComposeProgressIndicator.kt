@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
@@ -34,6 +35,7 @@ internal fun ProgressIndicator(progress: Float, indicatorColor: Color = Material
     ) {
         Canvas(
             modifier = Modifier
+                .rotate(progress * 0.45f * 360)
                 .fillMaxSize()
                 .padding(8.dp)
         ) {
