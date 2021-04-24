@@ -17,6 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.aakarshrestha.composepagersnaphelper.ComposePagerSnapHelper
 import com.aakarshrestha.sampleappswipetorefresh.R
 import com.aakarshrestha.sampleappswipetorefresh.models.Music
 import com.aakarshrestha.sampleappswipetorefresh.network.fakeNetworkCall
@@ -193,23 +194,30 @@ fun HeaderSection(
 
 @Composable
 fun HorizontalMusicList(count: Int) {
-    LazyRow {
-        items(count = count) { item ->
-            Card(
-                modifier = Modifier
-                    .width(320.dp)
-                    .height(350.dp)
-                    .padding( start = if (item == 0) 16.dp else 8.dp,
-                        top = 16.dp,
-                        bottom = 16.dp,
-                        end = if (item == 4) 16.dp else 8.dp
-                    ),
-                backgroundColor = Color.LightGray,
-                shape = RoundedCornerShape(12)
-            ) {
-                //TODO
-            }
 
+    val widthValue = 320.dp
+
+    ComposePagerSnapHelper(
+        width = widthValue
+    ) { listState ->
+        LazyRow(
+            state = listState,
+        ) {
+            items(count = count) { item ->
+                Card(
+                    modifier = Modifier
+                        .width(widthValue)
+                        .height(350.dp)
+                        .padding(
+                            start = if (item == 0) 16.dp else 16.dp,
+                            top = 16.dp, bottom = 16.dp,
+                            end = if (item == 4) 16.dp else 8.dp),
+                    backgroundColor = Color.LightGray, shape = RoundedCornerShape(12)
+                ) {
+                    //Put text or whatever here
+
+                }
+            }
         }
     }
 }

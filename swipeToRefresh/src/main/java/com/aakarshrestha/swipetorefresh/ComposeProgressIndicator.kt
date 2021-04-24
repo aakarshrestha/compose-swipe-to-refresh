@@ -35,7 +35,7 @@ internal fun ProgressIndicator(progress: Float, indicatorColor: Color = Material
     ) {
         Canvas(
             modifier = Modifier
-                .rotate(progress * 0.45f * 360)
+                .rotate(progress * 0.5f * 3 * 360)
                 .fillMaxSize()
                 .padding(8.dp)
         ) {
