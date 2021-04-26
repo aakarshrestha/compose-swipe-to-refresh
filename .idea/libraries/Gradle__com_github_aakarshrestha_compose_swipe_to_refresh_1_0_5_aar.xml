@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.aakarshrestha:compose-swipe-to-refresh:1.0.5@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4e9dfa2a375e894fa48df42c1660c852/compose-swipe-to-refresh-1.0.5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4e9dfa2a375e894fa48df42c1660c852/compose-swipe-to-refresh-1.0.5/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4e9dfa2a375e894fa48df42c1660c852/compose-swipe-to-refresh-1.0.5/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.aakarshrestha/compose-swipe-to-refresh/1.0.5/26c1076b111773c0f3dfc3fba4cb5c9c071595c/compose-swipe-to-refresh-1.0.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
