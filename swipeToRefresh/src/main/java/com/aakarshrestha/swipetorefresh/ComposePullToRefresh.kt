@@ -225,31 +225,36 @@ fun ComposePullToRefresh(
 
         content()
 
-        Card(
-            modifier = Modifier
-                .padding(top = indicatorTopPadding)
-                .offset {
-                    IntOffset(x = 0, y = state.indicatorOffset.roundToInt().div(2))
-                }
-                .size(cardSize.dp),
-            elevation = 5.dp,
-            shape = CircleShape
+        Row(
+            horizontalArrangement = Arrangement.Center
         ) {
 
-            if (state.isRefreshing.value) {
-                CircularProgressIndicator(
-                    modifier = Modifier
-                        .padding(7.dp),
-                    strokeWidth = 2.dp,
-                    color = indicatorColor
-                )
-            } else {
-                ProgressIndicator(
-                    progress = state.indicatorOffset.roundToInt().div(2).div(530f),
-                    indicatorColor = indicatorColor
-                )
-            }
+            Card(
+                modifier = Modifier
+                    .padding(top = indicatorTopPadding)
+                    .offset {
+                        IntOffset(x = 0, y = state.indicatorOffset.roundToInt().div(2))
+                    }
+                    .size(cardSize.dp),
+                elevation = 5.dp,
+                shape = CircleShape
+            ) {
 
+                if (state.isRefreshing.value) {
+                    CircularProgressIndicator(
+                        modifier = Modifier
+                            .padding(10.dp),
+                        strokeWidth = 2.dp,
+                        color = indicatorColor
+                    )
+                } else {
+                    ProgressIndicator(
+                        progress = state.indicatorOffset.roundToInt().div(2).div(530f),
+                        indicatorColor = indicatorColor
+                    )
+                }
+
+            }
         }
     }
 }

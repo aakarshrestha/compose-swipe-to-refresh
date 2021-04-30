@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.core.view.WindowCompat
 import com.aakarshrestha.sampleappswipetorefresh.data.MusicData
 import com.aakarshrestha.sampleappswipetorefresh.models.Music
-import com.aakarshrestha.sampleappswipetorefresh.screens.HeaderSection
 import com.aakarshrestha.sampleappswipetorefresh.screens.MainScreen
 import com.aakarshrestha.sampleappswipetorefresh.screens.Screen
 import com.aakarshrestha.sampleappswipetorefresh.ui.theme.SampleAppSwipeToRefreshTheme

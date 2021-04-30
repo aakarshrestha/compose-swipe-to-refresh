@@ -1,9 +1,14 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.aakarshrestha:compose-pager-snap-helper:0.3.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ccb351171e93ada20435461ad8fa161c/compose-pager-snap-helper-0.3.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ccb351171e93ada20435461ad8fa161c/compose-pager-snap-helper-0.3.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ccb351171e93ada20435461ad8fa161c/compose-pager-snap-helper-0.3.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4a036551111c77394389ab3cc9d06d17/compose-pager-snap-helper-0.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/aec6e38b2f8aa6facc5ca32bd75fcba1/transformed/compose-pager-snap-helper-0.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e6de7c0f5b4f7e375585623a117637b5/transformed/compose-pager-snap-helper-0.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/8d83c0b3ac3eb4aec28158e7af3fb860/transformed/compose-pager-snap-helper-0.3.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/ac5af25fe580d023e7544a5ded52f1c7/transformed/compose-pager-snap-helper-0.3.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ac5af25fe580d023e7544a5ded52f1c7/transformed/compose-pager-snap-helper-0.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ac5af25fe580d023e7544a5ded52f1c7/transformed/compose-pager-snap-helper-0.3.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
